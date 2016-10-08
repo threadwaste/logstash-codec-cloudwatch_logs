@@ -1,7 +1,10 @@
+---
 sudo: false
 language: ruby
 cache: bundler
 rvm:
-  - jruby-1.7.23
+  - jruby-1.7.25
 script: 
-  - bundle exec rspec spec
+  - bundle exec rspec
+jdk: oraclejdk8
+before_install: []

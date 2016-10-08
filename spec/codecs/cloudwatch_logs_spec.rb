@@ -33,14 +33,14 @@ describe LogStash::Codecs::CloudWatchLogs do
       expect(events.size).to eq 3
 
       events.each do |event|
-        expect(event['owner']).to eq '123456789012'
-        expect(event['logGroup']).to eq 'CloudTrail'
-        expect(event['logStream']).to eq '123456789012_CloudTrail_us-east-1'
-        expect(event['subscriptionFilters']).to eq ['RootAccess']
-        expect(event['messageType']).to eq 'DATA_MESSAGE'
+        expect(event.get('owner')).to eq '123456789012'
+        expect(event.get('logGroup')).to eq 'CloudTrail'
+        expect(event.get('logStream')).to eq '123456789012_CloudTrail_us-east-1'
+        expect(event.get('subscriptionFilters')).to eq ['RootAccess']
+        expect(event.get('messageType')).to eq 'DATA_MESSAGE'
       end
 
-      messages = events.map { |e| e["message"] }
+      messages = events.map { |e| e.get("message") }
       expect(messages).to eq ["first", "second", "third"]
     end
   end
