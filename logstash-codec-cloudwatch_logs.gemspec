@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-codec-cloudwatch_logs'
   s.version       = '0.0.1'
-  s.licenses      = ['MIT']
+  s.licenses      = ['Apache License (2.0)']
   s.summary       = "Parse CloudWatch Logs subscription data"
   s.description   = "This gem is a Logstash plugin required to be installed on top of the Logstash core pipeline using $LS_HOME/bin/logstash-plugin install gemname. This gem is not a stand-alone program"
   s.authors       = ["Anthony M."]
