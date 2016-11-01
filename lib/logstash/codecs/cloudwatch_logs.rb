@@ -21,7 +21,7 @@ class LogStash::Codecs::CloudWatchLogs < LogStash::Codecs::Base
     gz = Zlib::GzipReader.new(data)
     gz.read
   rescue Zlib::Error, Zlib::GzipFile::Error => e
-    @logger.error("oops: #{e}")
+    @logger.error("Error decompressing CloudWatch Logs data: #{e}")
   end
 
   def parse(json, &block)
