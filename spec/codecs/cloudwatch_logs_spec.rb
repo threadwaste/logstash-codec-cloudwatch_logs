@@ -3,7 +3,7 @@ require "logstash/devutils/rspec/spec_helper"
 require "logstash/codecs/cloudwatch_logs"
 
 describe LogStash::Codecs::CloudWatchLogs do
-  let!(:compressed_data) do
+  let!(:raw_data) do
     data = StringIO.new
     data << '{'
     data << '"owner":"123456789012",'
@@ -21,7 +21,7 @@ describe LogStash::Codecs::CloudWatchLogs do
 
       zipped = StringIO.new('', 'r+b')
       zipper = Zlib::GzipWriter.new(zipped)
-      zipper.write(compressed_data.read)
+      zipper.write(raw_data.read)
       zipper.finish
 
       zipped.rewind
